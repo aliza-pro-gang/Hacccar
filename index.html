@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7c3aed">
+  <title>VoiceShift — Boy to Girl Voice Changer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="logo">VS</div>
+      <div>
+        <h1>VoiceShift</h1>
+        <p>Boy → Girl Voice Changer</p>
+      </div>
+      <span class="status" id="status">Ready</span>
+    </header>
+
+    <section class="card recorder">
+      <div class="mic-orb" id="micOrb">🎙️</div>
+      <div class="timer" id="timer">00:00</div>
+
+      <div class="buttons">
+        <button class="primary" id="recordBtn">Start Recording</button>
+        <button class="secondary" id="stopBtn" disabled>Stop</button>
+      </div>
+
+      <p class="hint">Allow microphone access when your browser asks.</p>
+    </section>
+
+    <section class="card controls">
+      <h2>Girl Voice Effect</h2>
+
+      <label>
+        Pitch
+        <span id="pitchValue">+6 semitones</span>
+      </label>
+      <input id="pitch" type="range" min="2" max="10" value="6" step="1">
+
+      <label>
+        Brightness
+        <span id="brightnessValue">65%</span>
+      </label>
+      <input id="brightness" type="range" min="0" max="100" value="65">
+
+      <label>
+        Voice Speed
+        <span id="speedValue">1.00×</span>
+      </label>
+      <input id="speed" type="range" min="0.75" max="1.25" value="1" step="0.01">
+
+      <div class="preset-row">
+        <button class="preset active" data-pitch="6" data-brightness="65">Girl</button>
+        <button class="preset" data-pitch="8" data-brightness="80">High Girl</button>
+        <button class="preset" data-pitch="4" data-brightness="45">Natural</button>
+      </div>
+    </section>
+
+    <section class="card output">
+      <h2>Output</h2>
+      <audio id="audioPlayer" controls></audio>
+      <div class="buttons">
+        <button class="primary" id="applyBtn" disabled>Apply Girl Voice</button>
+        <a class="download disabled" id="downloadBtn">Download WAV</a>
+      </div>
+      <p class="hint" id="outputHint">Record a voice first.</p>
+    </section>
+
+    <footer>
+      Runs in your browser using the Web Audio API. No audio is uploaded by this demo.
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
